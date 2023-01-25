@@ -2,11 +2,11 @@
   "name": "backend_heisenberg",
   "version": "1.0.0",
   "description": "import express, {json} from \"express\" import dotenv from \"dotenv\" import cors from \"cors\"",
-  "main": "server.js",
+  "main": "./src/server.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "nodemon ./src/server.js"
   },
   "keywords": [],
   "author": "",
