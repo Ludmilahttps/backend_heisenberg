@@ -1,6 +1,7 @@
 import bcrypt from 'bcrypt'
 import { v4 as uuid } from 'uuid'
 import db from '../database/db.js'
+import { cartsCollection } from '../database/db.js'
 
 export async function signIn (request, response) {
 
@@ -28,7 +29,8 @@ export async function signUp (request, response) {
     try {
         
         const pass = bcrypt.hashSync(password, 10)
-        await db.collection('users').insertOne({name, email, password: pass})
+        const user = await db.collection('users').insertOne({name, email, password: pass})
+        await cartsCollection.insertOne({ userId: user.insertedId, products: [] });
         return response.status(201).send('OK')
 
     } catch(error) {
