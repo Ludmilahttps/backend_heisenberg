@@ -14,3 +14,5 @@ try {
 
 let db = mongoClient.db()
 export default db
+export const cartsCollection = db.collection("carts");
+export const productsCollection = db.collection("products");
